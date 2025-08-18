@@ -137,15 +137,15 @@ export default function PerformerPage({
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-pink-500 border-t-transparent"></div>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-4 border-indigo-500 border-t-transparent"></div>
       </div>
     );
   }
 
   if (!project || !performer) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center">
         <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-white/20">
           <p className="text-gray-600">データが見つかりません</p>
         </div>
@@ -157,22 +157,22 @@ export default function PerformerPage({
   const timeline = generateTimeline();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <div className="mb-6">
           <button
             onClick={() => router.push(`/project/${project.id}`)}
-            className="text-gray-600 hover:text-pink-600 transition-colors flex items-center gap-2"
+            className="text-gray-600 hover:text-indigo-600 transition-colors flex items-center gap-2"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            {isDemoMode ? 'デモプロジェクトに戻る' : 'プロジェクトに戻る'}
+            {isDemoMode ? 'デモイベントに戻る' : 'イベントに戻る'}
           </button>
         </div>
 
         <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden border border-white/20">
-          <div className="bg-gradient-to-r from-pink-500 to-purple-600 px-6 py-8 text-white text-center">
+          <div className="bg-gradient-to-r from-indigo-500 to-indigo-600 px-6 py-8 text-white text-center">
             <h1 className="text-3xl font-bold mb-3">{performer.name}様</h1>
             <div className="flex items-center justify-center gap-3 mb-2">
               <div className="w-2 h-2 bg-white rounded-full"></div>
@@ -181,7 +181,7 @@ export default function PerformerPage({
               </p>
               <div className="w-2 h-2 bg-white rounded-full"></div>
             </div>
-            <p className="text-pink-100">{project.title}</p>
+            <p className="text-indigo-100">{project.title}</p>
           </div>
           
           <div className="p-6">
@@ -192,14 +192,14 @@ export default function PerformerPage({
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    収録日
+                    開催日
                   </h3>
                   <p className="mt-1 text-lg text-gray-900 font-medium">
                     {project.recordingDate} ({getDayOfWeek(project.recordingDate)})
                   </p>
                 </div>
                 <div className="bg-gray-50/50 backdrop-blur-sm rounded-xl p-4 border border-gray-100">
-                  <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide">収録場所</h3>
+                  <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide">開催場所</h3>
                   <div className="mt-1 space-y-2">
                     <p className="text-lg text-gray-900 font-medium">{project.location}</p>
                     {project.address && (
@@ -210,7 +210,7 @@ export default function PerformerPage({
                         href={project.locationMapUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block bg-gradient-to-r from-pink-500 to-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium hover:from-pink-600 hover:to-purple-600 transition-all duration-200"
+                        className="inline-block bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-3 py-1 rounded-full text-sm font-medium hover:from-indigo-600 hover:to-indigo-700 transition-all duration-200"
                       >
                         <span className="inline-flex items-center gap-1">
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -296,7 +296,7 @@ export default function PerformerPage({
                       <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                       </svg>
-                      番組側準備物
+                      主催者側準備物
                     </h3>
                     <div className="whitespace-pre-wrap text-gray-700">{performer.programItems}</div>
                   </div>
@@ -307,7 +307,7 @@ export default function PerformerPage({
             {performerPlans.length > 0 && (
               <div className="border-t border-gray-100 pt-6 mb-8">
                 <div className="flex items-center gap-3 mb-4">
-                  <h3 className="text-xl font-semibold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">出演予定企画</h3>
+                  <h3 className="text-xl font-semibold bg-gradient-to-r from-indigo-600 to-indigo-700 bg-clip-text text-transparent">出演予定企画</h3>
                   {performerPlans.some(plan => !plan.isConfirmed) && (
                     <div className="flex items-center gap-2 px-3 py-1.5 bg-orange-100 rounded-lg">
                       <svg className="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -326,7 +326,7 @@ export default function PerformerPage({
                       
                       return (
                         <details key={plan.id} className="bg-white/70 backdrop-blur-sm rounded-xl border border-white/50 shadow-md group hover:shadow-lg transition-all">
-                          <summary className="p-3 sm:p-4 cursor-pointer hover:bg-gradient-to-r hover:from-pink-50/50 hover:to-purple-50/50 transition-all rounded-xl list-none">
+                          <summary className="p-3 sm:p-4 cursor-pointer hover:bg-gradient-to-r hover:from-indigo-50/50 hover:to-blue-50/50 transition-all rounded-xl list-none">
                             <div className="flex items-start justify-between gap-3">
                               <div className="flex-1 min-w-0">
                                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
@@ -358,7 +358,7 @@ export default function PerformerPage({
                               <div className="flex flex-col items-end gap-1 flex-shrink-0">
                                 <span className="text-xs text-gray-500 group-open:hidden hidden sm:block">タップして詳細を見る</span>
                                 <span className="text-xs text-gray-500 hidden group-open:block">タップして閉じる</span>
-                                <div className="w-8 h-8 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full flex items-center justify-center group-hover:from-pink-600 group-hover:to-purple-600 transition-all shadow-md">
+                                <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center group-hover:from-indigo-600 group-hover:to-indigo-700 transition-all shadow-md">
                                   <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                   </svg>
@@ -392,7 +392,7 @@ export default function PerformerPage({
                                     href={plan.scriptUrl} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-lg text-base font-medium hover:from-pink-600 hover:to-purple-600 transition-all duration-200 inline-flex items-center justify-center gap-2 w-full sm:w-4/5 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                                    className="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-6 py-3 rounded-lg text-base font-medium hover:from-indigo-600 hover:to-indigo-700 transition-all duration-200 inline-flex items-center justify-center gap-2 w-full sm:w-4/5 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                                   >
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -450,7 +450,7 @@ export default function PerformerPage({
             {timeline.length > 0 && (
               <div className="border-t border-gray-100 pt-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <h3 className="text-xl font-semibold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">当日のスケジュール</h3>
+                  <h3 className="text-xl font-semibold bg-gradient-to-r from-indigo-600 to-indigo-700 bg-clip-text text-transparent">当日のスケジュール</h3>
                   {timeline.some(item => item.isConfirmed === false) && (
                     <div className="flex items-center gap-2 px-3 py-1.5 bg-orange-100 rounded-lg">
                       <svg className="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -461,13 +461,13 @@ export default function PerformerPage({
                   )}
                 </div>
                 <div className="relative">
-                  <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-pink-300 to-purple-300"></div>
+                  <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-300 to-indigo-400"></div>
                   <div className="space-y-6">
                     {timeline.map((item, index) => (
                       <div key={index} className="relative flex items-start">
                         <div className={`absolute left-2 w-4 h-4 rounded-full border-2 border-white shadow-md ${
                           item.type === 'arrival' ? 'bg-gradient-to-r from-green-400 to-emerald-500' :
-                          item.type === 'departure' ? 'bg-gradient-to-r from-red-400 to-pink-500' :
+                          item.type === 'departure' ? 'bg-gradient-to-r from-red-400 to-red-500' :
                           'bg-gradient-to-r from-blue-400 to-indigo-500'
                         }`}></div>
                         <div className="ml-10 min-w-0 flex-1">

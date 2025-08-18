@@ -50,27 +50,27 @@ export default function DemoAdminDashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-pink-500 border-t-transparent"></div>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-indigo-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-indigo-50">
       {/* Modern Header */}
       <nav className="bg-white/80 backdrop-blur-lg border-b border-white/20 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20">
             <div className="flex items-center space-x-3 sm:space-x-4">
-              <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl shadow-lg">
+              <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl shadow-lg">
                 <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
               <div className="min-w-0">
-                <h1 className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent truncate">
-                  BEAUTY ROAD
+                <h1 className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent truncate">
+                  IRIAM EVENT CALL SHEET
                 </h1>
                 <p className="text-xs sm:text-sm text-gray-600 truncate">デモ管理者ダッシュボード</p>
               </div>
@@ -108,7 +108,7 @@ export default function DemoAdminDashboard() {
                 <div>
                   <h3 className="font-semibold text-amber-900 mb-1">デモモードで動作中</h3>
                   <p className="text-sm text-amber-800">
-                    Beauty Road管理システムの全機能をお試しいただけます。変更内容はセッション中のみ保持され、ブラウザを閉じるとリセットされます。
+                    IRIAM EVENT CALL SHEET管理システムの全機能をお試しいただけます。変更内容はセッション中のみ保持され、ブラウザを閉じるとリセットされます。
                   </p>
                 </div>
               </div>
@@ -119,7 +119,7 @@ export default function DemoAdminDashboard() {
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-8 space-y-4 sm:space-y-0">
             <div>
               <h2 className="text-3xl font-bold text-gray-900">デモプロジェクト</h2>
-              <p className="text-gray-600 mt-1">収録プロジェクトの管理機能を体験</p>
+              <p className="text-gray-600 mt-1">開催イベントの管理機能を体験</p>
             </div>
           </div>
 
@@ -135,22 +135,22 @@ export default function DemoAdminDashboard() {
                 </div>
 
                 {/* Card Header */}
-                <div className="bg-gradient-to-r from-pink-500 to-purple-500 px-6 py-4">
+                <div className="bg-gradient-to-r from-blue-500 to-indigo-500 px-6 py-4">
                   <h3 className="text-xl font-bold text-white mb-1">{project.title}</h3>
-                  <p className="text-pink-100 text-sm">デモ収録プロジェクト</p>
+                  <p className="text-blue-100 text-sm">デモ開催イベント</p>
                 </div>
                 
                 {/* Card Content */}
                 <div className="p-6">
                   <div className="space-y-3 mb-6">
                     <div className="flex items-center space-x-2">
-                      <svg className="w-4 h-4 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3a1 1 0 011-1h6a1 1 0 011 1v4m-6 0V2m6 5v6a1 1 0 01-1 1H9a1 1 0 01-1-1V7m10-5v13a2 2 0 01-2 2H5a2 2 0 01-2-2V2a2 2 0 012-2h14a2 2 0 012 2z" />
                       </svg>
-                      <span className="text-sm text-gray-600">収録日: <span className="font-medium text-gray-900">{project.recordingDate} ({getDayOfWeek(project.recordingDate)})</span></span>
+                      <span className="text-sm text-gray-600">開催日: <span className="font-medium text-gray-900">{project.recordingDate} ({getDayOfWeek(project.recordingDate)})</span></span>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <svg className="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                       <span className="text-sm text-gray-600">時間: <span className="font-medium text-gray-900">{formatRecordingTime(project.totalRecordingTime)}</span></span>
@@ -166,13 +166,13 @@ export default function DemoAdminDashboard() {
                   
                   {/* Stats */}
                   <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="bg-gradient-to-r from-pink-50 to-pink-100 rounded-xl p-3 text-center">
-                      <div className="text-2xl font-bold text-pink-600">{project.performers.length}</div>
-                      <div className="text-xs text-pink-500 font-medium">出演者</div>
+                    <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-3 text-center">
+                      <div className="text-2xl font-bold text-blue-600">{project.performers.length}</div>
+                      <div className="text-xs text-blue-500 font-medium">出演者</div>
                     </div>
-                    <div className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl p-3 text-center">
-                      <div className="text-2xl font-bold text-purple-600">{project.plans.length}</div>
-                      <div className="text-xs text-purple-500 font-medium">企画</div>
+                    <div className="bg-gradient-to-r from-indigo-50 to-indigo-100 rounded-xl p-3 text-center">
+                      <div className="text-2xl font-bold text-indigo-600">{project.plans.length}</div>
+                      <div className="text-xs text-indigo-500 font-medium">企画</div>
                     </div>
                   </div>
                   
@@ -205,7 +205,7 @@ export default function DemoAdminDashboard() {
 
               {/* Feature Overview Card */}
               <div className="bg-white/90 backdrop-blur-sm overflow-hidden shadow-lg rounded-2xl border border-white/20 p-6">
-                <h3 className="text-xl font-semibold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent mb-4">
+                <h3 className="text-xl font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
                   体験できる機能
                 </h3>
                 <div className="space-y-3">
@@ -232,36 +232,36 @@ export default function DemoAdminDashboard() {
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
-                      <svg className="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center">
+                      <svg className="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">企画管理</p>
-                      <p className="text-sm text-gray-600">収録企画の作成・編集</p>
+                      <p className="text-sm text-gray-600">開催企画の作成・編集</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
-                      <svg className="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
                       </svg>
                     </div>
                     <div>
-                      <p className="font-medium text-gray-900">香盤エディタ</p>
+                      <p className="font-medium text-gray-900">スケジュール管理</p>
                       <p className="text-sm text-gray-600">ドラッグ&ドロップでスケジュール編集</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-pink-100 rounded-lg flex items-center justify-center">
-                      <svg className="w-4 h-4 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                       </svg>
                     </div>
                     <div>
-                      <p className="font-medium text-gray-900">総合香盤表</p>
-                      <p className="text-sm text-gray-600">印刷対応の香盤表生成</p>
+                      <p className="font-medium text-gray-900">マスタースケジュール</p>
+                      <p className="text-sm text-gray-600">印刷対応のタイムテーブル生成</p>
                     </div>
                   </div>
                 </div>

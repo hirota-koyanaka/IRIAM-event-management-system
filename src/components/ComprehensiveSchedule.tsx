@@ -26,7 +26,7 @@ interface PerformerActivity {
 export default function ComprehensiveSchedule({ project }: ComprehensiveScheduleProps) {
   // プロジェクトデータの基本チェック
   if (!project) {
-    return <div className="p-4 text-red-500">プロジェクトデータが見つかりません</div>;
+    return <div className="p-4 text-indigo-500">プロジェクトデータが見つかりません</div>;
   }
   // 時間をHH:MM形式から分に変換
   const timeToMinutes = (timeStr: string): number => {
@@ -247,11 +247,11 @@ export default function ComprehensiveSchedule({ project }: ComprehensiveSchedule
       // カスタム: 深めのオレンジ（企画と区別）
       let itemColor;
       if (item.type === 'plan') {
-        itemColor = '#f97316'; // オレンジ（企画）
+        itemColor = '#ec4899'; // pink-500（企画）
       } else if (item.type === 'break') {
-        itemColor = '#fca5a5'; // 薄い赤色（休憩）
+        itemColor = '#a1a1aa'; // zinc-400（休憩）
       } else if (item.type === 'preparation') {
-        itemColor = '#6b7280'; // グレー（準備）
+        itemColor = '#0ea5e9'; // sky-500（準備）
       } else {
         itemColor = '#ea580c'; // 深めのオレンジ（カスタム）
       }
@@ -294,7 +294,7 @@ export default function ComprehensiveSchedule({ project }: ComprehensiveSchedule
                     performerId: performer.id,
                     activity: item.type as 'break' | 'preparation' | 'custom',
                     planTitle: item.title,
-                    color: item.type === 'break' ? '#fca5a5' : item.type === 'preparation' ? '#6b7280' : '#ea580c'
+                    color: item.type === 'break' ? '#a1a1aa' : item.type === 'preparation' ? '#0ea5e9' : '#ea580c'
                   };
                 }
               }
@@ -322,11 +322,11 @@ export default function ComprehensiveSchedule({ project }: ComprehensiveSchedule
       const rowSpan = Math.ceil(item.duration / 10);
       let itemColor;
       if (item.type === 'plan') {
-        itemColor = '#f97316'; // オレンジ（企画）
+        itemColor = '#ec4899'; // pink-500（企画）
       } else if (item.type === 'break') {
-        itemColor = '#fca5a5'; // 薄い赤色（休憩）
+        itemColor = '#a1a1aa'; // zinc-400（休憩）
       } else if (item.type === 'preparation') {
-        itemColor = '#6b7280'; // グレー（準備）
+        itemColor = '#0ea5e9'; // sky-500（準備）
       } else {
         itemColor = '#ea580c'; // 深めのオレンジ（カスタム）
       }
@@ -350,10 +350,10 @@ export default function ComprehensiveSchedule({ project }: ComprehensiveSchedule
   return (
     <div className="space-y-6">
       {/* ヘッダー情報 */}
-      <div className="bg-orange-100 border border-orange-300 rounded-lg p-4">
+      <div className="bg-blue-100 rounded-lg p-4">
         <div className="text-center space-y-2">
           <div className="text-lg font-bold">
-            【収録現場】: {project.location} 
+            【イベント会場】: {project.location} 
             {project.locationMapUrl && (
               <a href={project.locationMapUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline ml-2">
                 (地図リンク)
@@ -366,23 +366,23 @@ export default function ComprehensiveSchedule({ project }: ComprehensiveSchedule
         </div>
       </div>
 
-      {/* 香盤表 */}
+      {/* タイムテーブル */}
       <div className="bg-white border border-gray-300 rounded-lg overflow-x-auto">
         <table className="min-w-full border-collapse">
           {/* ヘッダー */}
           <thead>
             <tr>
               <th className="bg-gray-200 border border-gray-400 p-2 text-sm font-bold min-w-[120px]">種別</th>
-              <th className="bg-orange-400 border border-gray-400 p-2 text-sm font-bold text-white min-w-[150px]">全体</th>
-              <th className="bg-blue-200 border border-gray-400 p-2 text-sm font-bold" colSpan={project?.performers?.length || 0}>
+              <th className="bg-gray-200 border border-gray-400 p-2 text-sm font-bold min-w-[150px]">全体</th>
+              <th className="bg-gray-200 border border-gray-400 p-2 text-sm font-bold" colSpan={project?.performers?.length || 0}>
                 ご出演者様
               </th>
             </tr>
             <tr>
               <th className="bg-gray-200 border border-gray-400 p-2 text-sm font-bold">名前</th>
-              <th className="bg-orange-400 border border-gray-400 p-2 text-sm font-bold text-white">-</th>
+              <th className="bg-gray-200 border border-gray-400 p-2 text-sm font-bold">-</th>
               {project?.performers?.map(performer => (
-                <th key={performer.id} className="bg-blue-200 border border-gray-400 p-2 text-sm font-bold min-w-[100px]">
+                <th key={performer.id} className="bg-gray-200 border border-gray-400 p-2 text-sm font-bold min-w-[100px]">
                   {performer.name}様
                 </th>
               ))}
@@ -418,7 +418,7 @@ export default function ComprehensiveSchedule({ project }: ComprehensiveSchedule
                     >
                       {itemInfo.item.type === 'plan' ? (
                         <>
-                          &lt;撮影{itemInfo.number}&gt;
+                          &lt;企画{itemInfo.number}&gt;
                           <br />
                           {itemInfo.item.title}
                         </>
@@ -427,7 +427,7 @@ export default function ComprehensiveSchedule({ project }: ComprehensiveSchedule
                       )}
                     </td>
                   ) : !isInExistingItem && (
-                    <td className="bg-gray-50 border border-gray-400 p-1"></td>
+                    <td className="bg-gray-200 border border-gray-400 p-1"></td>
                   )}
 
                   {/* 出演者列 */}
@@ -492,16 +492,17 @@ export default function ComprehensiveSchedule({ project }: ComprehensiveSchedule
                       case 'arrival':
                         cellContent = performer.startTime ? `${formatTimeShort(performer.startTime)} 入り` : '';
                         bgColor = 'bg-white';
-                        textColor = 'text-red-600 font-bold';
+                        textColor = 'text-indigo-600 font-bold';
                         break;
                       case 'departure':
                         cellContent = performer.endTime ? `${formatTimeShort(performer.endTime)} 終わり` : '';
                         bgColor = 'bg-white';
-                        textColor = 'text-red-600 font-bold';
+                        textColor = 'text-indigo-600 font-bold';
                         break;
                       case 'wait':
                         cellContent = '待機';
-                        bgColor = 'bg-green-200';
+                        bgColor = 'bg-indigo-500';
+                        textColor = 'text-white';
                         break;
                       case 'free':
                       default:
@@ -537,7 +538,7 @@ export default function ComprehensiveSchedule({ project }: ComprehensiveSchedule
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
           </svg>
-          香盤表を印刷
+          タイムテーブルを印刷
         </button>
       </div>
 

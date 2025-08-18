@@ -28,19 +28,19 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-sky-50 to-indigo-50 p-4">
       <div className="w-full max-w-md relative">
         {/* Main card */}
         <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/30 p-8">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full mb-4 shadow-lg">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mb-4 shadow-lg">
               <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
             </div>
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent mb-2">
-              BEAUTY ROAD
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">
+              IRIAM EVENT CALL SHEET
             </h1>
             <p className="text-gray-600 text-sm font-medium">管理者ダッシュボード</p>
           </div>
@@ -57,7 +57,7 @@ export default function LoginPage() {
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-pink-400 focus:bg-white transition-all duration-200"
+                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white transition-all duration-200"
                   placeholder="パスワードを入力してください"
                   required
                   disabled={isLoading}
@@ -70,8 +70,8 @@ export default function LoginPage() {
                 </div>
               </div>
               {error && (
-                <div className="mt-3 p-3 bg-red-50 border border-red-200 rounded-lg">
-                  <p className="text-sm text-red-600 flex items-center">
+                <div className="mt-3 p-3 bg-indigo-50 border border-indigo-200 rounded-lg">
+                  <p className="text-sm text-indigo-600 flex items-center">
                     <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -84,7 +84,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white py-3 px-6 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:from-pink-600 hover:to-purple-600 focus:outline-none focus:ring-4 focus:ring-pink-200 disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-200"
+              className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-3 px-6 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:from-blue-600 hover:to-indigo-600 focus:outline-none focus:ring-4 focus:ring-pink-200 disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-200"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center">
@@ -107,7 +107,7 @@ export default function LoginPage() {
                 システムのデモは
                 <a 
                   href="/admin/demo" 
-                  className="ml-1 text-pink-600 hover:text-pink-700 font-medium transition-colors duration-200 hover:underline"
+                  className="ml-1 text-blue-600 hover:text-pink-700 font-medium transition-colors duration-200 hover:underline"
                 >
                   こちらから
                 </a>

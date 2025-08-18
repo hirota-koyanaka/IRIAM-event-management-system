@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-BEAUTY ROAD Dashboard - A Next.js 15 application for managing TV show performer information, schedules, and project planning. The system serves two distinct user types: administrators (full CRUD operations) and performers (read-only access to their schedules).
+IRIAM EVENT CALL SHEET Dashboard - A Next.js 15 application for managing IRIAM event performer information, schedules, and project planning. The system serves two distinct user types: administrators (full CRUD operations) and performers (read-only access to their schedules).
 
 ## Essential Commands
 

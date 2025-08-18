@@ -118,7 +118,7 @@ export default function ProjectEditPage({ params }: { params: Promise<{ id: stri
     }
   }, [project, isDemoMode]);
 
-  // 香盤表エディターからのスケジュール更新を処理
+  // スケジュール管理ーからのスケジュール更新を処理
   const handleScheduleUpdate = useCallback(async (planId: string, newStartTime: string) => {
     if (!project) return;
     
@@ -146,7 +146,7 @@ export default function ProjectEditPage({ params }: { params: Promise<{ id: stri
     }
   }, [project]);
 
-  // 香盤表エディターからの尺変更を処理
+  // スケジュール管理ーからの尺変更を処理
   const handleDurationUpdate = useCallback(async (planId: string, newDuration: string) => {
     if (!project) return;
     
@@ -300,15 +300,15 @@ export default function ProjectEditPage({ params }: { params: Promise<{ id: stri
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-pink-500 border-t-transparent"></div>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-indigo-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent"></div>
       </div>
     );
   }
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-indigo-50 flex items-center justify-center">
         <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-white/20">
           <p className="text-gray-600">プロジェクトが見つかりません</p>
         </div>
@@ -317,14 +317,14 @@ export default function ProjectEditPage({ params }: { params: Promise<{ id: stri
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-indigo-50">
       <nav className="bg-white/90 backdrop-blur-sm shadow-lg border-b border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20">
             <div className="flex items-center space-x-3 sm:space-x-4 min-w-0 flex-1">
               <button
                 onClick={() => router.push(isDemoMode ? '/' : '/admin')}
-                className="text-gray-600 hover:text-pink-600 transition-colors flex items-center gap-1 flex-shrink-0"
+                className="text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-1 flex-shrink-0"
               >
                 <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -332,7 +332,7 @@ export default function ProjectEditPage({ params }: { params: Promise<{ id: stri
                 <span className="hidden xs:inline">{isDemoMode ? 'ログインに戻る' : '戻る'}</span>
               </button>
               <div className="min-w-0 flex-1">
-                <h1 className="text-sm sm:text-xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent truncate">
+                <h1 className="text-sm sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent truncate">
                   <span className="hidden sm:inline">{project.title} - 編集ページ</span>
                   <span className="sm:hidden">{project.title}</span>
                 </h1>
@@ -390,15 +390,15 @@ export default function ProjectEditPage({ params }: { params: Promise<{ id: stri
                 { key: 'basic', label: '基本情報' },
                 { key: 'performers', label: '出演者管理' },
                 { key: 'plans', label: '企画管理' },
-                { key: 'schedule-editor', label: '香盤エディタ' },
-                { key: 'schedule', label: '香盤表' }
+                { key: 'schedule-editor', label: 'スケジュール管理' },
+                { key: 'schedule', label: 'タイムテーブル' }
               ].map((tab) => (
                 <button
                   key={tab.key}
                   onClick={() => setActiveTab(tab.key as any)}
                   className={`whitespace-nowrap py-2 px-2 sm:px-1 border-b-2 font-medium text-xs sm:text-sm flex-shrink-0 ${
                     activeTab === tab.key
-                      ? 'border-pink-500 text-pink-600'
+                      ? 'border-blue-500 text-blue-600'
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                   }`}
                 >
@@ -410,28 +410,28 @@ export default function ProjectEditPage({ params }: { params: Promise<{ id: stri
 
           {activeTab === 'basic' && (
             <div className="bg-white/90 backdrop-blur-sm shadow-xl rounded-2xl p-4 sm:p-6 border border-white/20">
-              <h3 className="text-lg font-semibold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent mb-4">基本情報</h3>
+              <h3 className="text-lg font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">基本情報</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">プロジェクト名</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">イベント名</label>
                   <input
                     type="text"
                     value={project.title}
                     onChange={(e) => updateProjectData({ title: e.target.value })}
-                    className="w-full border-gray-200 rounded-xl px-4 py-2.5 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all duration-200"
+                    className="w-full border-gray-200 rounded-xl px-4 py-2.5 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">収録日</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">開催日</label>
                   <input
                     type="date"
                     value={project.recordingDate}
                     onChange={(e) => updateProjectData({ recordingDate: e.target.value })}
-                    className="w-full border-gray-200 rounded-xl px-4 py-2.5 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all duration-200"
+                    className="w-full border-gray-200 rounded-xl px-4 py-2.5 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">収録時間</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">開催時間</label>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
                       <label className="block text-xs text-gray-500 mb-1">開始時間</label>
@@ -441,7 +441,7 @@ export default function ProjectEditPage({ params }: { params: Promise<{ id: stri
                           const endTime = project.totalRecordingTime.includes('-') ? project.totalRecordingTime.split('-')[1].trim() : '18:00';
                           updateProjectData({ totalRecordingTime: `${newStartTime}-${endTime}` });
                         }}
-                        className="w-full border-gray-200 rounded-xl px-4 py-2.5 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all duration-200"
+                        className="w-full border-gray-200 rounded-xl px-4 py-2.5 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
                         required
                       />
                     </div>
@@ -453,22 +453,22 @@ export default function ProjectEditPage({ params }: { params: Promise<{ id: stri
                           const startTime = project.totalRecordingTime.includes('-') ? project.totalRecordingTime.split('-')[0].trim() : '09:00';
                           updateProjectData({ totalRecordingTime: `${startTime}-${newEndTime}` });
                         }}
-                        className="w-full border-gray-200 rounded-xl px-4 py-2.5 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all duration-200"
+                        className="w-full border-gray-200 rounded-xl px-4 py-2.5 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
                         required
                       />
                     </div>
                   </div>
                   <p className="text-xs text-gray-500 mt-1">
-                    スタジオ全体の収録時間帯（10分単位で設定可能）
+                    スタジオ全体の開催時間帯（10分単位で設定可能）
                   </p>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">収録場所</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">開催場所</label>
                   <input
                     type="text"
                     value={project.location}
                     onChange={(e) => updateProjectData({ location: e.target.value })}
-                    className="w-full border-gray-200 rounded-xl px-4 py-2.5 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all duration-200"
+                    className="w-full border-gray-200 rounded-xl px-4 py-2.5 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
                   />
                 </div>
                 <div>
@@ -478,7 +478,7 @@ export default function ProjectEditPage({ params }: { params: Promise<{ id: stri
                     value={project.address || ''}
                     onChange={(e) => updateProjectData({ address: e.target.value })}
                     placeholder="例: 東京都渋谷区1-1-1"
-                    className="w-full border-gray-200 rounded-xl px-4 py-2.5 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all duration-200"
+                    className="w-full border-gray-200 rounded-xl px-4 py-2.5 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
                   />
                 </div>
                 <div className="md:col-span-2">
@@ -487,7 +487,7 @@ export default function ProjectEditPage({ params }: { params: Promise<{ id: stri
                     type="url"
                     value={project.locationMapUrl || ''}
                     onChange={(e) => updateProjectData({ locationMapUrl: e.target.value })}
-                    className="w-full border-gray-200 rounded-xl px-4 py-2.5 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all duration-200"
+                    className="w-full border-gray-200 rounded-xl px-4 py-2.5 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
                   />
                 </div>
               </div>
@@ -514,10 +514,10 @@ export default function ProjectEditPage({ params }: { params: Promise<{ id: stri
           {activeTab === 'performers' && (
             <div className="bg-white/90 backdrop-blur-sm shadow-xl rounded-2xl p-4 sm:p-6 border border-white/20">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
-                <h3 className="text-lg font-semibold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">出演者管理</h3>
+                <h3 className="text-lg font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">出演者管理</h3>
                 <button
                   onClick={addPerformer}
-                  className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded-lg hover:scale-105 transition-all duration-200 shadow-md flex items-center justify-center gap-2 w-full sm:w-auto"
+                  className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4 py-2 rounded-lg hover:scale-105 transition-all duration-200 shadow-md flex items-center justify-center gap-2 w-full sm:w-auto"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -555,9 +555,9 @@ export default function ProjectEditPage({ params }: { params: Promise<{ id: stri
               {project.performers.filter(p => !p.isTimeConfirmed).length > 0 && (
                 <div className="mb-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-4 h-4 bg-orange-500 rounded-full animate-pulse"></div>
+                    <div className="w-4 h-4 bg-blue-500 rounded-full animate-pulse"></div>
                     <h4 className="text-lg font-semibold text-orange-800">未確定出演者</h4>
-                    <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">
+                    <span className="px-3 py-1 bg-blue-100 text-orange-800 rounded-full text-sm font-medium">
                       {project.performers.filter(p => !p.isTimeConfirmed).length}名
                     </span>
                   </div>
@@ -608,10 +608,10 @@ export default function ProjectEditPage({ params }: { params: Promise<{ id: stri
           {activeTab === 'plans' && (
             <div className="bg-white/90 backdrop-blur-sm shadow-xl rounded-2xl p-4 sm:p-6 border border-white/20">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
-                <h3 className="text-lg font-semibold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">企画管理</h3>
+                <h3 className="text-lg font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">企画管理</h3>
                 <button
                   onClick={addPlan}
-                  className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded-lg hover:scale-105 transition-all duration-200 shadow-md flex items-center justify-center gap-2 w-full sm:w-auto"
+                  className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4 py-2 rounded-lg hover:scale-105 transition-all duration-200 shadow-md flex items-center justify-center gap-2 w-full sm:w-auto"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -650,9 +650,9 @@ export default function ProjectEditPage({ params }: { params: Promise<{ id: stri
               {project.plans.filter(p => !p.isConfirmed).length > 0 && (
                 <div className="mb-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-4 h-4 bg-orange-500 rounded-full animate-pulse"></div>
+                    <div className="w-4 h-4 bg-blue-500 rounded-full animate-pulse"></div>
                     <h4 className="text-lg font-semibold text-orange-800">未確定企画</h4>
-                    <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">
+                    <span className="px-3 py-1 bg-blue-100 text-orange-800 rounded-full text-sm font-medium">
                       {project.plans.filter(p => !p.isConfirmed).length}件
                     </span>
                   </div>
@@ -734,7 +734,7 @@ function PlanCard({
 }) {
   return (
     <details className="group bg-white/70 backdrop-blur-sm border border-white/50 rounded-xl shadow-md hover:shadow-lg transition-all duration-200">
-      <summary className="p-3 sm:p-4 cursor-pointer hover:bg-gradient-to-r hover:from-pink-50/50 hover:to-purple-50/50 transition-all rounded-xl list-none">
+      <summary className="p-3 sm:p-4 cursor-pointer hover:bg-gradient-to-r hover:from-blue-50/50 hover:to-indigo-50/50 transition-all rounded-xl list-none">
         <div className="flex items-start justify-between gap-3">
           <div className="flex-1 min-w-0">
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
@@ -742,7 +742,7 @@ function PlanCard({
                 {plan.title || '企画名未入力'}
               </h5>
               <span className={`self-start px-2 sm:px-3 py-1 rounded-full text-xs font-medium ${
-                plan.isConfirmed ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'
+                plan.isConfirmed ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-orange-800'
               }`}>
                 {plan.isConfirmed ? '確定済み' : '未確定'}
               </span>
@@ -765,7 +765,7 @@ function PlanCard({
                 </span>
               )}
               {plan.hasScript && (
-                <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">
+                <span className="px-2 py-1 bg-indigo-100 text-purple-800 rounded-full text-xs">
                   台本あり
                 </span>
               )}
@@ -774,7 +774,7 @@ function PlanCard({
           <div className="flex flex-col items-end gap-1 flex-shrink-0">
             <span className="text-xs text-gray-500 group-open:hidden hidden sm:block">タップして編集</span>
             <span className="text-xs text-gray-500 hidden group-open:block">タップして閉じる</span>
-            <div className="w-8 h-8 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full flex items-center justify-center group-hover:from-pink-600 group-hover:to-purple-600 transition-all shadow-md">
+            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center group-hover:from-blue-600 group-hover:to-indigo-600 transition-all shadow-md">
               <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
@@ -791,20 +791,20 @@ function PlanCard({
             type="text"
             value={plan.title}
             onChange={(e) => updatePlanData(plan.id, { title: e.target.value })}
-            className="w-full border-gray-200 rounded-xl px-4 py-2.5 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all duration-200"
+            className="w-full border-gray-200 rounded-xl px-4 py-2.5 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
             placeholder="企画名を入力"
           />
         </div>
 
-        {/* 収録時間 */}
+        {/* 開催時間 */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">収録時間</label>
+          <label className="block text-sm font-medium text-gray-700 mb-2">開催時間</label>
           <select
             value={plan.duration}
             onChange={(e) => updatePlanData(plan.id, { duration: e.target.value })}
-            className="w-full border-gray-200 rounded-xl px-4 py-2.5 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all duration-200"
+            className="w-full border-gray-200 rounded-xl px-4 py-2.5 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
           >
-            <option value="">収録時間を選択</option>
+            <option value="">開催時間を選択</option>
             {Array.from({ length: 18 }, (_, i) => (i + 1) * 10).map(minutes => (
               <option key={minutes} value={`${minutes}分`}>
                 {minutes}分{minutes >= 60 && ` (${Math.floor(minutes / 60)}時間${minutes % 60 ? `${minutes % 60}分` : ''})`}
@@ -820,7 +820,7 @@ function PlanCard({
             <TimeInput
               value={plan.scheduledTime}
               onChange={(value) => updatePlanData(plan.id, { scheduledTime: value })}
-              className="w-full border-gray-200 rounded-xl px-3 py-2 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all duration-200 text-sm"
+              className="w-full border-gray-200 rounded-xl px-3 py-2 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
             />
           </div>
           <div>
@@ -843,7 +843,7 @@ function PlanCard({
               type="url"
               value={plan.scriptUrl || ''}
               onChange={(e) => updatePlanData(plan.id, { scriptUrl: e.target.value, hasScript: !!e.target.value })}
-              className="flex-1 border-gray-200 rounded-xl px-3 py-2 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all duration-200 text-sm"
+              className="flex-1 border-gray-200 rounded-xl px-3 py-2 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
               placeholder="台本のURLを入力"
             />
             <button
@@ -879,7 +879,7 @@ function PlanCard({
                         updatePlanData(plan.id, { performers: updatedPerformers });
                       }
                     }}
-                    className="rounded border-gray-300 text-pink-600 focus:ring-pink-500"
+                    className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                   />
                   <span className="text-sm text-gray-700 flex-1">{performer.name}様</span>
                   
@@ -893,7 +893,7 @@ function PlanCard({
                         );
                         updatePlanData(plan.id, { performers: updatedPerformers });
                       }}
-                      className="text-xs border-gray-200 rounded-lg px-2 py-1 bg-white border focus:outline-none focus:ring-1 focus:ring-pink-500"
+                      className="text-xs border-gray-200 rounded-lg px-2 py-1 bg-white border focus:outline-none focus:ring-1 focus:ring-blue-500"
                     >
                       <option value="MC">MC</option>
                       <option value="Guest">ゲスト</option>
@@ -914,7 +914,7 @@ function PlanCard({
                         updatePlanData(plan.id, { performers: updatedPerformers });
                       }}
                       placeholder="役割を入力"
-                      className="text-xs border-gray-200 rounded-lg px-2 py-1 bg-white border focus:outline-none focus:ring-1 focus:ring-pink-500 w-20"
+                      className="text-xs border-gray-200 rounded-lg px-2 py-1 bg-white border focus:outline-none focus:ring-1 focus:ring-blue-500 w-20"
                     />
                   )}
                 </div>
@@ -934,7 +934,7 @@ function PlanCard({
             value={plan.notes || ''}
             onChange={(e) => updatePlanData(plan.id, { notes: e.target.value })}
             rows={2}
-            className="w-full border-gray-200 rounded-xl px-3 py-2 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all duration-200 text-sm"
+            className="w-full border-gray-200 rounded-xl px-3 py-2 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
             placeholder="補足情報や参考動画URLを入力"
           />
         </div>
@@ -956,7 +956,7 @@ function PlanCard({
                 removePlan(plan.id);
               }
             }}
-            className="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-xl text-sm font-medium transition-all duration-200 flex items-center space-x-1"
+            className="bg-indigo-500 hover:bg-indigo-600 text-white px-3 py-2 rounded-xl text-sm font-medium transition-all duration-200 flex items-center space-x-1"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1-1H8a1 1 0 00-1 1v3M4 7h16" />
@@ -985,7 +985,7 @@ function PerformerCard({
 }) {
   return (
     <details className="group bg-white/70 backdrop-blur-sm border border-white/50 rounded-xl shadow-md hover:shadow-lg transition-all duration-200">
-      <summary className="p-4 cursor-pointer hover:bg-gradient-to-r hover:from-pink-50/50 hover:to-purple-50/50 transition-all rounded-xl list-none">
+      <summary className="p-4 cursor-pointer hover:bg-gradient-to-r hover:from-blue-50/50 hover:to-indigo-50/50 transition-all rounded-xl list-none">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4 flex-1 min-w-0">
             <div className="flex-1 min-w-0">
@@ -1004,7 +1004,7 @@ function PerformerCard({
                 <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                   performer.isTimeConfirmed 
                     ? 'bg-green-100 text-green-800' 
-                    : 'bg-orange-100 text-orange-800'
+                    : 'bg-blue-100 text-orange-800'
                 }`}>
                   {performer.isTimeConfirmed ? '確定済み' : '未確定'}
                 </span>
@@ -1014,7 +1014,7 @@ function PerformerCard({
           <div className="flex items-center gap-2">
             <span className="text-sm text-gray-500 group-open:hidden hidden sm:block">タップして編集</span>
             <span className="text-sm text-gray-500 hidden group-open:block">タップして閉じる</span>
-            <div className="w-8 h-8 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full flex items-center justify-center group-hover:from-pink-600 group-hover:to-purple-600 transition-all shadow-md">
+            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center group-hover:from-blue-600 group-hover:to-indigo-600 transition-all shadow-md">
               <svg className="w-4 h-4 text-white transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
@@ -1032,7 +1032,7 @@ function PerformerCard({
               type="text"
               value={performer.name}
               onChange={(e) => updatePerformerData(performer.id, { name: e.target.value })}
-              className="w-full border-gray-200 rounded-xl px-4 py-2.5 pr-12 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all duration-200"
+              className="w-full border-gray-200 rounded-xl px-4 py-2.5 pr-12 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
               placeholder="名前を入力"
             />
             <span className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-sm">様</span>
@@ -1065,7 +1065,7 @@ function PerformerCard({
                   }, 2000);
                 }
               }}
-              className="px-4 py-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-xl hover:from-pink-600 hover:to-purple-700 transition-all duration-200 text-sm font-medium"
+              className="px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-xl hover:from-blue-600 hover:to-indigo-700 transition-all duration-200 text-sm font-medium"
             >
               コピー
             </button>
@@ -1123,7 +1123,7 @@ function PerformerCard({
               />
             </div>
           </div>
-          <p className="text-xs text-blue-600 mt-1">香盤エディタで表示される参加可能時間です</p>
+          <p className="text-xs text-blue-600 mt-1">スケジュール管理で表示される参加可能時間です</p>
         </div>
 
         {/* 入り・終わり時間 */}
@@ -1135,7 +1135,7 @@ function PerformerCard({
               <TimeInput
                 value={performer.startTime || ''}
                 onChange={(value) => updatePerformerData(performer.id, { startTime: value })}
-                className="w-full border-gray-200 rounded-xl px-3 py-2 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all duration-200 text-sm"
+                className="w-full border-gray-200 rounded-xl px-3 py-2 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
               />
             </div>
             <div>
@@ -1143,11 +1143,11 @@ function PerformerCard({
               <TimeInput
                 value={performer.endTime || ''}
                 onChange={(value) => updatePerformerData(performer.id, { endTime: value })}
-                className="w-full border-gray-200 rounded-xl px-3 py-2 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all duration-200 text-sm"
+                className="w-full border-gray-200 rounded-xl px-3 py-2 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm"
               />
             </div>
           </div>
-          <p className="text-xs text-gray-600 mt-1">香盤表に表示される実際の入り・終わり時間です</p>
+          <p className="text-xs text-gray-600 mt-1">タイムテーブルに表示される実際の入り・終わり時間です</p>
         </div>
 
         {/* 時間確定チェックボックス */}
@@ -1171,20 +1171,20 @@ function PerformerCard({
             onChange={(e) => updatePerformerData(performer.id, { belongings: e.target.value })}
             placeholder="持参していただく物を入力してください"
             rows={3}
-            className="w-full border-gray-200 rounded-xl px-3 py-2 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all duration-200 text-sm resize-none"
+            className="w-full border-gray-200 rounded-xl px-3 py-2 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm resize-none"
           />
           <p className="text-xs text-gray-500 mt-1">改行で区切って入力してください</p>
         </div>
 
-        {/* 番組側準備物欄 */}
+        {/* 主催者側準備物欄 */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">番組側準備物</label>
+          <label className="block text-sm font-medium text-gray-700 mb-2">主催者側準備物</label>
           <textarea
             value={performer.programItems || ''}
             onChange={(e) => updatePerformerData(performer.id, { programItems: e.target.value })}
-            placeholder="番組側で準備する物を入力してください"
+            placeholder="主催者側で準備する物を入力してください"
             rows={3}
-            className="w-full border-gray-200 rounded-xl px-3 py-2 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all duration-200 text-sm resize-none"
+            className="w-full border-gray-200 rounded-xl px-3 py-2 border bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-sm resize-none"
           />
           <p className="text-xs text-gray-500 mt-1">改行で区切って入力してください</p>
         </div>
@@ -1207,7 +1207,7 @@ function PerformerCard({
                 removePerformer(performer.id);
               }
             }}
-            className="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-xl text-sm font-medium transition-all duration-200 flex items-center space-x-1"
+            className="bg-indigo-500 hover:bg-indigo-600 text-white px-3 py-2 rounded-xl text-sm font-medium transition-all duration-200 flex items-center space-x-1"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1-1H8a1 1 0 00-1 1v3M4 7h16" />

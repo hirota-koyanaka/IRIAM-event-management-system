@@ -59,7 +59,7 @@ export interface ScheduleItem {
   isConfirmed: boolean;
 }
 
-// 香盤表エディター用の型
+// スケジュール管理用の型
 export interface TimelineItem {
   id: string;
   type: 'plan' | 'break' | 'preparation' | 'custom';

@@ -478,14 +478,17 @@ function transformPerformerFromDB(dbPerformer: any): Performer {
 
 // スケジュールアイテム（休憩・準備時間）関連
 export async function createScheduleItem(projectId: string, type: 'break' | 'preparation' | 'custom', title: string, startTime: string, duration: number): Promise<boolean> {
+  // customタイプはpreparationとして扱う
+  const dbType = type === 'custom' ? 'preparation' : type;
+  
   const { error } = await supabase
     .from('schedule_items')
     .insert({
       project_id: projectId,
-      type,
-      title,
+      type: dbType,
+      description: title,  // titleではなくdescriptionカラムを使用
       start_time: startTime,
-      duration
+      duration: duration.toString()  // durationは文字列として保存
     })
 
   if (error) {
@@ -508,13 +511,26 @@ export async function getScheduleItems(projectId: string): Promise<any[]> {
     return []
   }
 
-  return data || []
+  // descriptionをtitleにマッピング、durationを数値に変換
+  const mappedData = (data || []).map(item => ({
+    ...item,
+    title: item.description || '',  // descriptionをtitleとして使用
+    duration: parseInt(item.duration || '0', 10)  // durationを数値に変換
+  }))
+
+  return mappedData
 }
 
 export async function updateScheduleItem(itemId: string, updates: { title?: string; start_time?: string; duration?: number }): Promise<boolean> {
+  // titleはdescriptionカラムにマップ、durationは文字列に変換
+  const dbUpdates: any = {}
+  if (updates.title !== undefined) dbUpdates.description = updates.title
+  if (updates.start_time !== undefined) dbUpdates.start_time = updates.start_time
+  if (updates.duration !== undefined) dbUpdates.duration = updates.duration.toString()
+  
   const { error } = await supabase
     .from('schedule_items')
-    .update(updates)
+    .update(dbUpdates)
     .eq('id', itemId)
 
   if (error) {

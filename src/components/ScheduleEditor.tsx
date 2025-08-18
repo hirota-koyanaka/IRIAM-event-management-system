@@ -917,8 +917,8 @@ export default function ScheduleEditor({ project, onScheduleUpdate, onDurationUp
       {/* ヘッダー */}
       <div className="bg-white/90 backdrop-blur-sm shadow-xl rounded-2xl p-6 border border-white/20">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-semibold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
-            香盤表エディター
+          <h2 className="text-xl font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            スケジュール管理
           </h2>
           <div className="flex items-center gap-3">
             {lastSaved && (
@@ -970,7 +970,7 @@ export default function ScheduleEditor({ project, onScheduleUpdate, onDurationUp
           </button>
           <button
             onClick={() => addBreakOrPreparation('preparation', '09:00')}
-            className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
+            className="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -979,7 +979,7 @@ export default function ScheduleEditor({ project, onScheduleUpdate, onDurationUp
           </button>
           <button
             onClick={() => setShowCustomModal(true)}
-            className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
+            className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -1028,7 +1028,7 @@ export default function ScheduleEditor({ project, onScheduleUpdate, onDurationUp
               <div className="flex items-center mb-1">
                 <span className="text-xs text-gray-600 w-16">{availability.name}様</span>
                 <span className={`text-xs px-1.5 py-0.5 rounded ${
-                  availability.isConfirmed ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'
+                  availability.isConfirmed ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-orange-800'
                 }`}>
                   {availability.isConfirmed ? '確定' : '仮'}
                 </span>
@@ -1036,7 +1036,7 @@ export default function ScheduleEditor({ project, onScheduleUpdate, onDurationUp
               <div className="relative h-4 bg-gray-100 rounded">
                 <div
                   className={`absolute h-full rounded ${
-                    availability.isConfirmed ? 'bg-green-200' : 'bg-orange-200'
+                    availability.isConfirmed ? 'bg-green-200' : 'bg-blue-200'
                   } opacity-60`}
                   style={getPerformerAvailabilityStyle(availability)}
                 ></div>
@@ -1177,7 +1177,7 @@ export default function ScheduleEditor({ project, onScheduleUpdate, onDurationUp
                         {item.type !== 'plan' && (
                           <button
                             onClick={(e) => removeItem(e, item.id)}
-                            className="bg-red-500 hover:bg-red-600 rounded w-4 h-4 flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity"
+                            className="bg-indigo-500 hover:bg-indigo-600 rounded w-4 h-4 flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity"
                             title="削除"
                           >
                             <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1229,11 +1229,11 @@ export default function ScheduleEditor({ project, onScheduleUpdate, onDurationUp
             <span>休憩時間</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 bg-purple-500 rounded"></div>
+            <div className="w-4 h-4 bg-indigo-500 rounded"></div>
             <span>準備時間</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 bg-orange-500 rounded"></div>
+            <div className="w-4 h-4 bg-blue-500 rounded"></div>
             <span>カスタム項目</span>
           </div>
         </div>
@@ -1255,7 +1255,7 @@ export default function ScheduleEditor({ project, onScheduleUpdate, onDurationUp
                   value={customTitle}
                   onChange={(e) => setCustomTitle(e.target.value)}
                   placeholder="例: 移動時間、セットアップ、その他"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   autoFocus
                 />
               </div>
@@ -1270,7 +1270,7 @@ export default function ScheduleEditor({ project, onScheduleUpdate, onDurationUp
                   onChange={(e) => setCustomDuration(parseInt(e.target.value) || 10)}
                   min="10"
                   step="10"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
             </div>
@@ -1279,7 +1279,7 @@ export default function ScheduleEditor({ project, onScheduleUpdate, onDurationUp
               <button
                 onClick={addCustomItem}
                 disabled={!customTitle.trim()}
-                className="flex-1 bg-orange-500 hover:bg-orange-600 disabled:bg-gray-300 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+                className="flex-1 bg-blue-500 hover:bg-blue-600 disabled:bg-gray-300 text-white px-4 py-2 rounded-lg font-medium transition-colors"
               >
                 追加
               </button>

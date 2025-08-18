@@ -70,11 +70,11 @@ export default function NewProposalPage() {
 
   const getDefaultExpenseText = () => {
     if (formData.appearanceFeeType === 'promotional' && formData.transportationType === 'self_expense') {
-      return `本番組では、出演者様の活動や作品を番組内でご紹介させていただく
+      return `本イベントでは、出演者様の活動や作品をイベント内でご紹介させていただく
 「宣伝枠」としての出演をお願いしております。
 
 そのため、出演料および交通費は原則として出演者様のご負担と
-なりますが、番組内での十分な宣伝時間を確保させていただきます。
+なりますが、イベント内での十分な宣伝時間を確保させていただきます。
 
 ご自身の活動をPRする絶好の機会として、ぜひご活用ください。`;
     }
@@ -82,7 +82,7 @@ export default function NewProposalPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-indigo-50">
       {/* Header */}
       <nav className="bg-white/80 backdrop-blur-lg border-b border-white/20 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -110,27 +110,27 @@ export default function NewProposalPage() {
           {/* 基本情報 */}
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-6 border border-white/20">
             <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-              <span className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center text-white text-sm font-bold mr-3">1</span>
+              <span className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center text-white text-sm font-bold mr-3">1</span>
               基本情報
             </h2>
             <div className="space-y-6">
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  企画タイトル <span className="text-red-500">*</span>
+                  企画タイトル <span className="text-indigo-500">*</span>
                 </label>
                 <input
                   type="text"
                   value={formData.title}
                   onChange={(e) => setFormData({...formData, title: e.target.value})}
-                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-orange-400 focus:bg-white transition-all duration-200"
-                  placeholder="例: BEAUTY ROAD 新企画「美容トレンド2025」"
+                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white transition-all duration-200"
+                  placeholder="例: IRIAM EVENT CALL SHEET 新企画「美容トレンド2025」"
                   required
                 />
                 <input
                   type="text"
                   value={formData.titleNote}
                   onChange={(e) => setFormData({...formData, titleNote: e.target.value})}
-                  className="w-full mt-2 px-4 py-2 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-orange-400 focus:bg-white transition-all duration-200 text-sm"
+                  className="w-full mt-2 px-4 py-2 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white transition-all duration-200 text-sm"
                   placeholder="仮タイトルの場合の注記（例: ※仮タイトル）"
                 />
               </div>
@@ -138,13 +138,13 @@ export default function NewProposalPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    収録予定日 <span className="text-red-500">*</span>
+                    開催予定日 <span className="text-indigo-500">*</span>
                   </label>
                   <input
                     type="text"
                     value={formData.recordingDateText}
                     onChange={(e) => setFormData({...formData, recordingDateText: e.target.value})}
-                    className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-orange-400 focus:bg-white transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white transition-all duration-200"
                     placeholder="例: 2025年3月予定"
                     required
                   />
@@ -152,13 +152,13 @@ export default function NewProposalPage() {
 
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    収録時間 <span className="text-red-500">*</span>
+                    開催時間 <span className="text-indigo-500">*</span>
                   </label>
                   <input
                     type="text"
                     value={formData.recordingTimeText}
                     onChange={(e) => setFormData({...formData, recordingTimeText: e.target.value})}
-                    className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-orange-400 focus:bg-white transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white transition-all duration-200"
                     placeholder="例: 3時間程度"
                     required
                   />
@@ -166,13 +166,13 @@ export default function NewProposalPage() {
 
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    収録場所 <span className="text-red-500">*</span>
+                    開催場所 <span className="text-indigo-500">*</span>
                   </label>
                   <input
                     type="text"
                     value={formData.locationText}
                     onChange={(e) => setFormData({...formData, locationText: e.target.value})}
-                    className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-orange-400 focus:bg-white transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white transition-all duration-200"
                     placeholder="例: 都内スタジオ"
                     required
                   />
@@ -187,7 +187,7 @@ export default function NewProposalPage() {
                   value={formData.overview}
                   onChange={(e) => setFormData({...formData, overview: e.target.value})}
                   rows={5}
-                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-orange-400 focus:bg-white transition-all duration-200"
+                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white transition-all duration-200"
                   placeholder="企画の概要や内容を記入してください"
                 />
               </div>
@@ -197,7 +197,7 @@ export default function NewProposalPage() {
           {/* 参考動画 */}
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-6 border border-white/20">
             <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-              <span className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center text-white text-sm font-bold mr-3">2</span>
+              <span className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center text-white text-sm font-bold mr-3">2</span>
               参考動画
             </h2>
             <div className="space-y-4">
@@ -209,7 +209,7 @@ export default function NewProposalPage() {
                   type="url"
                   value={formData.youtubeUrl}
                   onChange={(e) => setFormData({...formData, youtubeUrl: e.target.value})}
-                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-orange-400 focus:bg-white transition-all duration-200"
+                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white transition-all duration-200"
                   placeholder="https://www.youtube.com/watch?v=..."
                 />
               </div>
@@ -221,8 +221,8 @@ export default function NewProposalPage() {
                   value={formData.videoDescription}
                   onChange={(e) => setFormData({...formData, videoDescription: e.target.value})}
                   rows={3}
-                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-orange-400 focus:bg-white transition-all duration-200"
-                  placeholder="例: この動画は過去の収録の様子です / あくまで参考イメージとなります"
+                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white transition-all duration-200"
+                  placeholder="例: この動画は過去の開催の様子です / あくまで参考イメージとなります"
                 />
               </div>
             </div>
@@ -231,7 +231,7 @@ export default function NewProposalPage() {
           {/* 出演条件 */}
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-6 border border-white/20">
             <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-              <span className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center text-white text-sm font-bold mr-3">3</span>
+              <span className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center text-white text-sm font-bold mr-3">3</span>
               出演条件
             </h2>
             <div className="space-y-6">
@@ -243,7 +243,7 @@ export default function NewProposalPage() {
                   <select
                     value={formData.appearanceFeeType}
                     onChange={(e) => setFormData({...formData, appearanceFeeType: e.target.value as any})}
-                    className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-orange-400 focus:bg-white transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white transition-all duration-200"
                   >
                     <option value="promotional">宣伝枠（無償）</option>
                     <option value="paid">出演料あり</option>
@@ -254,7 +254,7 @@ export default function NewProposalPage() {
                       type="text"
                       value={formData.appearanceFeeText}
                       onChange={(e) => setFormData({...formData, appearanceFeeText: e.target.value})}
-                      className="w-full mt-2 px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-orange-400 focus:bg-white transition-all duration-200"
+                      className="w-full mt-2 px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white transition-all duration-200"
                       placeholder="詳細を入力"
                     />
                   )}
@@ -267,7 +267,7 @@ export default function NewProposalPage() {
                   <select
                     value={formData.transportationType}
                     onChange={(e) => setFormData({...formData, transportationType: e.target.value as any})}
-                    className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-orange-400 focus:bg-white transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white transition-all duration-200"
                   >
                     <option value="self_expense">実費</option>
                     <option value="provided">支給あり</option>
@@ -278,7 +278,7 @@ export default function NewProposalPage() {
                       type="text"
                       value={formData.transportationText}
                       onChange={(e) => setFormData({...formData, transportationText: e.target.value})}
-                      className="w-full mt-2 px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-orange-400 focus:bg-white transition-all duration-200"
+                      className="w-full mt-2 px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white transition-all duration-200"
                       placeholder="詳細を入力"
                     />
                   )}
@@ -293,7 +293,7 @@ export default function NewProposalPage() {
                   value={formData.expenseNote || getDefaultExpenseText()}
                   onChange={(e) => setFormData({...formData, expenseNote: e.target.value})}
                   rows={6}
-                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-orange-400 focus:bg-white transition-all duration-200"
+                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white transition-all duration-200"
                   placeholder="出演条件の詳細説明"
                 />
               </div>
@@ -303,7 +303,7 @@ export default function NewProposalPage() {
           {/* 公開設定 */}
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-6 border border-white/20">
             <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-              <span className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center text-white text-sm font-bold mr-3">4</span>
+              <span className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center text-white text-sm font-bold mr-3">4</span>
               公開設定
             </h2>
             <div className="space-y-6">
@@ -315,7 +315,7 @@ export default function NewProposalPage() {
                   type="text"
                   value={formData.slug}
                   onChange={(e) => setFormData({...formData, slug: e.target.value})}
-                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-orange-400 focus:bg-white transition-all duration-200"
+                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white transition-all duration-200"
                   placeholder="自動生成されます（任意で変更可能）"
                 />
                 <p className="text-xs text-gray-500 mt-1">
@@ -331,7 +331,7 @@ export default function NewProposalPage() {
                   type="date"
                   value={formData.expiresAt}
                   onChange={(e) => setFormData({...formData, expiresAt: e.target.value})}
-                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-orange-400 focus:bg-white transition-all duration-200"
+                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white transition-all duration-200"
                 />
                 <p className="text-xs text-gray-500 mt-1">
                   設定した日付を過ぎると自動的に非公開になります
@@ -344,7 +344,7 @@ export default function NewProposalPage() {
                   id="isPublished"
                   checked={formData.isPublished}
                   onChange={(e) => setFormData({...formData, isPublished: e.target.checked})}
-                  className="w-5 h-5 text-orange-500 rounded focus:ring-orange-400"
+                  className="w-5 h-5 text-blue-500 rounded focus:ring-blue-400"
                 />
                 <label htmlFor="isPublished" className="text-sm font-medium text-gray-700">
                   作成後すぐに公開する
@@ -365,7 +365,7 @@ export default function NewProposalPage() {
             </button>
             <button
               type="submit"
-              className="flex-1 px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl hover:from-orange-600 hover:to-red-600 transition-all duration-200 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl hover:from-blue-600 hover:to-indigo-600 transition-all duration-200 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isSubmitting}
             >
               {isSubmitting ? '作成中...' : '企画書を作成'}
