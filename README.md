@@ -1,4 +1,4 @@
-# BEAUTY ROAD Dashboard
+# BEAUTY ROAD Dashboard (IRIAM Event Management System)
 
 BEAUTY ROAD番組の出演者情報管理専用ダッシュボードアプリ
 
