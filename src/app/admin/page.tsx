@@ -446,9 +446,9 @@ export default function AdminDashboard() {
                         )}
                       </div>
                       {proposal.isPublished ? (
-                        <span className="px-2 py-1 bg-green-500 text-white text-xs rounded-full font-medium">公開中</span>
+                        <span className="px-3 py-1 bg-green-500 text-white text-xs rounded-lg font-medium whitespace-nowrap">公開中</span>
                       ) : (
-                        <span className="px-2 py-1 bg-gray-500 text-white text-xs rounded-full font-medium">非公開</span>
+                        <span className="px-3 py-1 bg-gray-500 text-white text-xs rounded-lg font-medium whitespace-nowrap">非公開</span>
                       )}
                     </div>
                   </div>
