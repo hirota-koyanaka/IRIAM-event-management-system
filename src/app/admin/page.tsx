@@ -144,7 +144,7 @@ export default function AdminDashboard() {
             </div>
             <button
               onClick={() => setShowCreateForm(true)}
-              className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:from-indigo-600 hover:to-indigo-700 transition-all duration-200 transform hover:scale-105"
+              className="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:from-indigo-600 hover:to-indigo-700 transition-all duration-200 transform hover:scale-105 min-w-[200px]"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -423,7 +423,7 @@ export default function AdminDashboard() {
               </div>
               <button
                 onClick={() => router.push('/admin/proposal/new')}
-                className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:from-indigo-600 hover:to-indigo-700 transition-all duration-200 transform hover:scale-105"
+                className="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:from-indigo-600 hover:to-indigo-700 transition-all duration-200 transform hover:scale-105 min-w-[200px]"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -460,7 +460,7 @@ export default function AdminDashboard() {
                         <svg className="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3a1 1 0 011-1h6a1 1 0 011 1v4m-6 0V2m6 5v6a1 1 0 01-1 1H9a1 1 0 01-1-1V7m10-5v13a2 2 0 01-2 2H5a2 2 0 01-2-2V2a2 2 0 012-2h14a2 2 0 012 2z" />
                         </svg>
-                        <span className="text-sm text-gray-600">収録: <span className="font-medium text-gray-900">{proposal.recordingDateText}</span></span>
+                        <span className="text-sm text-gray-600">開催日: <span className="font-medium text-gray-900">{proposal.recordingDateText}</span></span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <svg className="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -473,7 +473,7 @@ export default function AdminDashboard() {
                           <svg className="w-4 h-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                           </svg>
-                          <span className="text-sm text-gray-600">期限: <span className="font-medium text-gray-900">{proposal.expiresAt}</span></span>
+                          <span className="text-sm text-gray-600">公開期限: <span className="font-medium text-gray-900">{proposal.expiresAt.split('T')[0]} ({getDayOfWeek(proposal.expiresAt.split('T')[0])})</span></span>
                         </div>
                       )}
                     </div>
@@ -542,7 +542,7 @@ export default function AdminDashboard() {
                   <p className="text-gray-600 mb-6">出演打診用の企画書を作成してみましょう</p>
                   <button
                     onClick={() => router.push('/admin/proposal/new')}
-                    className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:from-indigo-600 hover:to-indigo-700 transition-all duration-200 transform hover:scale-105"
+                    className="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:from-indigo-600 hover:to-indigo-700 transition-all duration-200 transform hover:scale-105 min-w-[200px]"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -567,7 +567,7 @@ export default function AdminDashboard() {
                 <p className="text-gray-600 mb-6">最初の開催イベントを作成して始めましょう</p>
                 <button
                   onClick={() => setShowCreateForm(true)}
-                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:from-indigo-600 hover:to-indigo-700 transition-all duration-200 transform hover:scale-105"
+                  className="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:from-indigo-600 hover:to-indigo-700 transition-all duration-200 transform hover:scale-105 min-w-[200px]"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
